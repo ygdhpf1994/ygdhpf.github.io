@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<style>
+		input {
+			display: none;
+		}
+		input + label {
+			display: block;
+			width: 420px;
+			height: 250px;
+			border-radius: 125px;
+			background-color: rgb(110,221,94);
+			position: absolute;
+		}
+		input + label::after {
+			content: '';
+			display: block;
+			width: 220px;
+			height: 220px;
+			border-radius: 110px;
+			background-color: white;
+			position: absolute;
+			top: 15px;
+			bottom: 15px;
+			right: 15px;
+			left: auto;
+			box-shadow: -4px 4px 5px #888888;
+			transition: right 1s ease;
+		}
+
+		input:checked + label {
+			background-color:  rgb(221,221,221);
+		}
+
+		input:checked + label::after{
+			right: 185px;
+		}
+	</style>
+<body>
+	<input type="checkbox" name="" id="switch">
+	<label class="foo" for="switch"></label>
+	<!-- <label class="ftt" for="switch"></label> -->
+
+</body>
+</html>
