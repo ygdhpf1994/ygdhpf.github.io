@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<style type="text/css">
+		.slider {
+			width: 520px;
+			height: 280px;
+			margin: 50px auto;
+			position: relative;
+		}
+		.slider input {
+			display: none;
+		}
+		.slider .indicators {
+			position: absolute;
+			top: 300px;
+			left: 50%;
+			margin-left: -40px;
+		}
+		.slider .indicators label {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border: 1px solid;
+			border-radius: 6px;
+		}
+		.slider input:checked ~ .indicators>label{
+			background-color: pink;
+		}
+		.slider img {
+			position: absolute;
+			top: 0;
+			opacity: 0;
+			xdisplay: none;
+			transition: 1s;
+		}
+		.slider input:checked + img {
+			xdisplay: block;
+			opacity: 1;
+		}
+		.al,.ar{
+			display: block;
+			width: 20px;
+			height: 60px;
+			background-color: rgba(192,192,192,50%);
+			line-height: 60px;
+			text-align: center;
+			text-decoration: none;
+			position: absolute;
+			top: 50%;
+			margin-top: -30px;
+		}
+		.al {
+			left: 0px;
+			
+		}
+		.ar {
+			right: 0px;
+			
+		}
+	</style>
+<body>
+	<div class="slider">
+		
+		<a href="#" class="al">&gt</a>
+		<a href="#" class="ar">&lt</a>
+		<input checked type="radio" name="hello" id="i1">
+		<img src="https://img.alicdn.com/tfs/TB12d0nVW6qK1RjSZFmXXX0PFXa-520-280.jpg_q90_.webp" alt="">
+		<input type="radio" name="hello" id="i2">
+		<img src="https://img.alicdn.com/simba/img/TB1Od2puXkoBKNjSZFESuvrEVXa.jpg" alt="">
+		<input type="radio" name="hello" id="i3">
+		<img src="https://img.alicdn.com/simba/img/TB1lW2BoDZmx1VjSZFGSuux2XXa.jpg" alt="">
+		<input type="radio" name="hello" id="i4">
+		<img src="https://img.alicdn.com/simba/img/TB1hJ8AV9zqK1RjSZPxSuw4tVXa.jpg" alt="">
+		<input type="radio" name="hello" id="i5">
+		<img src="https://img.alicdn.com/tfs/TB1EgW7VFzqK1RjSZFoXXbfcXXa-520-280.jpg_q90_.webp" alt="">
+		<div class="indicators">
+			<label for="i1"></label>
+			<label for="i2"></label>
+			<label for="i3"></label>
+			<label for="i4"></label>
+			<label for="i5"></label>
+		</div>
+	</div>
+
+</body>
+</html>
