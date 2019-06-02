@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* body {
+            overflow: hidden;
+        } */
+        header {
+            width: 100%;
+            height: 780px;
+            overflow: hidden;
+            position: relative;
+        }
+        header ul {
+            padding: 0;
+            width: 100%;
+            height: inherit;
+            margin: 0;
+            
+        }
+        header ul li {
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            width: 100%;
+            height: inherit;
+            transition: 1s;
+            overflow: hidden;
+            background-size: cover; 
+        }
+        header ul li:first-of-type {
+            opacity: 1;
+        }
+        header ul li img {
+            width:100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        section {
+            display: flex;
+            width: 100;           
+            justify-content:space-between;
+            flex-wrap: wrap;
+            align-items: baseline;
+            /* padding-right: -2px; */
+            margin-right: -5px;
+        }
+        section a {
+            display: block;
+            /* width: calc((100% - 6px)/4); */
+            min-width: 268px;
+            max-width: 530px;
+            height: 260px;
+            background-size: cover;
+            justify-content:space-between;
+            margin: 2px 2px 0px 0px;
+            flex-grow: 1;
+        }
+        @media only screen and (max-width:1090px) {
+            section {
+                column-count: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul id="foo">
+            <li class="current" style="background-image:url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-4.jpg)"></li>
+            <li style="background-image:url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-7.jpg)"></li>
+            <li style="background-image:url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg)"></li>
+            <li style="background-image:url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-8.jpg)"></li>
+            <li style="background-image:url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-3.jpg)"></li>
+        </ul>
+    </header>
+    <section>
+        <a href="" style="background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg)"></a>
+        <a href="" style="background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg)"></a>
+        <a href="" style="background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg)"></a>
+        <a href="" style="background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg)"></a>
+    </section>
+    <script>
+        (function(){
+            var index = 0;
+            var len = document.querySelectorAll('header ul li').length;
+            
+            function slideto(i) {
+                var lis = document.querySelectorAll('header ul li');
+                lis[i].style.opacity = 1;
+
+                document.querySelector('.current').style.opacity = 0;
+                document.querySelector('.current').classList.remove('current')
+                lis[i].classList.add('current');
+            }
+
+            function next() {
+                if(index === len -1) {
+                    index = 0;
+                }else {
+                    index++
+                }
+                slideto(index)
+            }
+
+            setInterval(next,4000)
+
+           
+
+        })()
+    </script>
+</body>
+</html>
