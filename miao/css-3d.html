@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        section {
+            margin-left: 500px;
+            margin-top: -200px;
+            width: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            /* transition: 4s linear; */
+            transform-origin: 200px 630px 150px;
+            animation: rotate 8s infinite linear;
+        }
+        .foo,.ftt {
+            /* float: left; */
+            width: 400px;
+            height: 400px;
+            position: relative;
+            /* margin:100px 200px; */
+            transition: 30s linear;
+            /* opacity: 0; */
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .foo div,.ftt div {
+            left: 100px;
+            top: 57.7px;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            box-sizing: border-box;
+            border-left: 100px solid transparent;
+		    border-top: 26.8px solid transparent;
+		    border-right: 100px solid transparent;
+		    border-bottom: 173.2px solid transparent;
+            
+        }
+        .foo .d1,.ftt .d1{
+            position: relative;
+            transform: rotate(60deg) rotateX(-41.81deg);
+            transform-origin: 200px 200px;
+            border-bottom-color: rgba(197, 42, 68, 0.658);
+            transform-style: preserve-3d;
+        }
+        .foo .d1 .d11,.ftt .d1 .d11 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: #000; */
+            transform: rotate(-30deg) rotateY(-41.81deg);
+            transform-origin: 0 0;
+            border-top: 100px solid transparent;
+		    border-right: 26.8px solid transparent;
+		    border-bottom: 100px solid transparent;
+		    border-left: 173.2px solid rgba(0, 0, 255, 0.589);
+        }
+        .foo .d1 .d12,.ftt .d1 .d12 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: #000; */
+            transform: rotate(120deg) rotateX(41.81deg);
+            transform-origin: 0 0;
+            border-right: 100px solid transparent;
+		    border-bottom: 26.8px solid transparent;
+		    border-left: 100px solid transparent;
+		    border-top: 173.2px solid rgba(0, 0, 255, 0.589);
+        }
+        
+        .foo .d2,.ftt .d2{
+            transform: rotate(-60deg) rotateX(-41.81deg);
+            transform-origin: 0 200px;
+            border-bottom-color:rgba(255, 255, 0, 0.582);
+            transform-style: preserve-3d;
+        }
+        .foo .d2 .d21,.ftt .d2 .d21 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: #000; */
+            transform: rotate(-30deg) rotateY(-41.81deg);
+            transform-origin: 0 0;
+            border-top: 100px solid transparent;
+		    border-right: 26.8px solid transparent;
+		    border-bottom: 100px solid transparent;
+		    border-left: 173.2px solid rgba(185, 159, 141, 0.589);
+        }
+        .foo .d2 .d22,.ftt .d2 .d22 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: #000; */
+            transform: rotate(120deg) rotateX(41.81deg);
+            transform-origin: 0 0;
+            border-right: 100px solid transparent;
+		    border-bottom: 26.8px solid transparent;
+		    border-left: 100px solid transparent;
+		    border-top: 173.2px solid rgba(192, 140, 172, 0.589);
+        }
+        .foo .d3,.ftt .d3{
+            transform: rotateX(-138.19deg) ;
+            transform-origin: 0px 200px;
+            border-bottom-color: rgba(0, 128, 0, 0.514);
+            transform-style: preserve-3d;
+        }
+        .foo .d3 .d31,.ftt .d3 .d31 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: #000; */
+            transform: rotate(-30deg) rotateY(41.81deg);
+            transform-origin: 0 0;
+            border-top: 100px solid transparent;
+		    border-right: 26.8px solid transparent;
+		    border-bottom: 100px solid transparent;
+		    border-left: 173.2px solid rgba(92, 182, 84, 0.589);
+        }
+        .foo .d3 .d32,.ftt .d3 .d32 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: #000; */
+            transform: rotate(120deg) rotateX(-41.81deg);
+            transform-origin: 0 0;
+            border-right: 100px solid transparent;
+		    border-bottom: 26.8px solid transparent;
+		    border-left: 100px solid transparent;
+		    border-top: 173.2px solid rgba(27, 7, 19, 0.589);
+        }
+        .foo .d4,.ftt .d4{
+            /* transform: rotate(0deg);
+            transform-origin: 150px 0; */
+            border-bottom-color: red;
+            opacity: 0.8;
+            
+        }
+        /* .foo:hover {
+            transform: rotateZ(3000deg) rotateX(3000deg);
+            transform-origin: 300px 300px 200px;
+        }
+        .ftt:hover {
+            transform: rotateZ(3000deg) rotateX(3000deg);
+            transform-origin: 300px 300px 200px;
+        } */
+        .foo {
+            transform-origin: 200px 200px 0;
+            transform: translateZ(301px) translateY(400px) rotate(180deg) rotateY(180deg);
+        }
+        /* section:hover {
+            transform: rotateY(300deg) rotateZ(300deg);
+            
+        } */
+        @keyframes rotate {
+            0% {
+                transform: rotateY(30deg) rotateZ(30deg);
+            }
+            50% {
+                transform: rotateY(300deg) rotateZ(300deg);
+            }
+            100% {
+                transform: rotateY(30deg) rotateZ(30deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="foo">
+            <div class="d1">
+                <div class="d11"></div>
+                <div class="d12"></div>
+                
+            </div>
+            <div class="d2">
+                    <div class="d21"></div>
+                    <div class="d22"></div>
+            </div>
+                
+            <div class="d3">
+                    <div class="d31"></div>
+                    <div class="d32"></div>
+            </div>
+            <div class="d4"></div>
+        </div>
+        <div class="ftt">
+            <div class="d1">
+                <div class="d11"></div>
+                <div class="d12"></div>
+                
+            </div>
+            <div class="d2">
+                    <div class="d21"></div>
+                    <div class="d22"></div>
+            </div>
+                
+            <div class="d3">
+                    <div class="d31"></div>
+                    <div class="d32"></div>
+            </div>
+            <div class="d4"></div>
+        </div>
+    </section>
+</body>
+</html>
