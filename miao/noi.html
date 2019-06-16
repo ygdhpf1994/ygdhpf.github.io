@@ -80,7 +80,7 @@
 <script id="ch0103/12">
     var pi = 3.14159;
     var r = Number(prompt('r'));
-    var V = 4/3*pi*r**3;
+    var V = (4/3)*pi*(r**3);
     console.log(V.toFixed(2));
 </script>
 <script id="ch0103/13">
@@ -88,17 +88,17 @@
     var b = a/100|0;
     var c = a%10;
     var d = a%100 - c;
-    var f = String(b) + String(d) + String(c);
+    
 
-    console.log(f);
+    console.log(c+''+d+''+b);
 </script>
 <script id="ch0103/14">
     var pi = 3.14159;
     var h = Number(prompt('h'));
     var r = Number(prompt('r'));
-    var x = (20000/(pi*r*r*h))|0 + (20000%(pi*r*r*h))>0?1:0;
+    var x = 20000/(pi*r*r*h);
     
-    console.log(x);
+    console.log(Math.ceil(x));
 </script>
 <script id="ch0103/15">
     var n = Number(prompt('n'));
@@ -113,7 +113,7 @@
     var Xb = Number(prompt('Xb'));
     var Yb = Number(prompt('Yb'));
     var s = Math.sqrt((Xa - Xb)**2 + (Ya - Yb)**2);
-    console.log(s);
+    console.log(s.toFixed(3));
 </script>
 <script id="ch0103/17">
     var X1 = Number(prompt('X1'));
@@ -127,7 +127,7 @@
     var c = Math.sqrt((X2 - X2)**2 + (Y2 - Y2)**2);
     var s = (a + b + c)/2;
     var S = Math.sqrt(s(s - a)(s - b)(s - c));
-    console.log(S);
+    console.log(S.toFixed(2));
 </script>
 <script id="ch0103/18">
     var a1 = Number(prompt('a1'));
@@ -164,9 +164,9 @@
     var m = n > 0?n:-n;
     console.log(m);
 </script>
-<script id="ch0104/03">z
+<script id="ch0104/03">
     var n = Number(prompt('n'));
-    var m = ((n % 2) == 0)?'even':'odd';
+    var m = ((n % 2) === 0)?'even':'odd';
     console.log(m);
     
 </script>
@@ -299,12 +299,12 @@
 <script id="ch0105/02">
     var a = [];
     var sums = 0;
-    for(i = 0;i < n;i++){
+    for(i = 0;i < 12;i++){
         a[i] = Number(prompt('i'));
         sums = sums + a[i];
     }
-    var ave = sums/n;
-    console.log(ave.toFixed(2));
+    var ave = sums/12;
+    console.log('$'+ave.toFixed(2));
 </script>
 <script id="ch0105/03">
     var n = Number(prompt('n'));
