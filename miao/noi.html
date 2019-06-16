@@ -30,7 +30,7 @@
     var a = Number(prompt('a'));
     var b = Number(prompt('b'));
 
-    console.log(a/b*10e8|0/10e8);
+    console.log((a/b).toFixed(9));
 </script>
 <script id="ch0103/06">
     var a = Number(prompt('a'));
@@ -59,9 +59,9 @@
 <script id="ch0103/09">
     var pi = 3.14159;
     var r = Number(prompt('r'));
-    console.log(2*r);
-    console.log(2*r*pi);
-    console.log(r*r*pi);
+    console.log((2*r).toFixed(4));
+    console.log((2*r*pi).toFixed(4));
+    console.log((r*r*pi).toFixed(4));
 </script>
 <script id="ch0103/10">
     var r1 = Number(prompt('r1'));
@@ -81,14 +81,14 @@
     var pi = 3.14159;
     var r = Number(prompt('r'));
     var V = 4/3*pi*r**3;
-    console.log(V);
+    console.log(V.toFixed(2));
 </script>
 <script id="ch0103/13">
     var a = Number(prompt('a'));
     var b = a/100|0;
     var c = a%10;
     var d = a%100 - c;
-    var f = new String(b) + new String(d) + new String(c);
+    var f = String(b) + String(d) + String(c);
 
     console.log(f);
 </script>
@@ -96,7 +96,7 @@
     var pi = 3.14159;
     var h = Number(prompt('h'));
     var r = Number(prompt('r'));
-    var x = 20000/(pi*r*r*h)|0 + (20000%(pi*r*r*h))>0?1:0;
+    var x = (20000/(pi*r*r*h))|0 + (20000%(pi*r*r*h))>0?1:0;
     
     console.log(x);
 </script>
@@ -104,7 +104,7 @@
     var n = Number(prompt('n'));
     var x = Number(prompt('x'));
     var y = Number(prompt('y'));
-    var h = n - (y/x|0 + y%x>0?1:0);
+    var h = n - Math.ceil(y/x);
     console.log(h);
 </script>
 <script id="ch0103/16">
@@ -112,7 +112,7 @@
     var Ya = Number(prompt('Ya'));
     var Xb = Number(prompt('Xb'));
     var Yb = Number(prompt('Yb'));
-    var s = Math.sqrt((Xa - Xb)**2 - (Ya - Yb)**2);
+    var s = Math.sqrt((Xa - Xb)**2 + (Ya - Yb)**2);
     console.log(s);
 </script>
 <script id="ch0103/17">
@@ -122,9 +122,9 @@
     var Y2 = Number(prompt('Y2'));
     var X3 = Number(prompt('X3'));
     var Y3 = Number(prompt('Y3'));
-    var a = Math.sqrt((X1 - X2)**2 - (Y1 - Y2)**2);
-    var b = Math.sqrt((X1 - X3)**2 - (Y1 - Y3)**2);
-    var c = Math.sqrt((X2 - X2)**2 - (Y2 - Y2)**2);
+    var a = Math.sqrt((X1 - X2)**2 + (Y1 - Y2)**2);
+    var b = Math.sqrt((X1 - X3)**2 + (Y1 - Y3)**2);
+    var c = Math.sqrt((X2 - X2)**2 + (Y2 - Y2)**2);
     var s = (a + b + c)/2;
     var S = Math.sqrt(s(s - a)(s - b)(s - c));
     console.log(S);
@@ -166,13 +166,14 @@
 </script>
 <script id="ch0104/03">z
     var n = Number(prompt('n'));
-    var m = n % 2 === 0?even:odd;
+    var m = ((n % 2) == 0)?'even':'odd';
     console.log(m);
+    
 </script>
 <script id="ch0104/04">
     var n = String(prompt('n'));
     var str = n;
-    console.log(str.charCodeAt()%2===0?YES:NO);
+    console.log(str.charCodeAt()%2===0?'NO':'YES');
 
 </script>
 <script id="ch0104/05">
@@ -218,12 +219,12 @@
     var n = Number(prompt('n'));
     var x = n/1.2;
     var y = n/3 + 50;
-    console.log(x>y?'Walk':(x=y?'All':'Bike'));
+    console.log(x>y?'Bike':(x=y?'All':'Walk'));
 </script>
 <script id="ch0104/13">
-    var n = Number(prompt('n'));
-    var y = (0<=x<5)?(-x+2.5):((5<=x<10)?(2-1.5*(x-3)*(x-3)):(x/2-1.5));
-    console.log(y);
+    var x = Number(prompt('x'));
+    var y = (0<=x&&x<5)?(2.5-x):((5<=x&&x<10)?(2-1.5*(x-3)*(x-3)):(x/2-1.5));
+    console.log(y.toFixed(3));
 </script>
 <script id="ch0104/14">
     var x = Number(prompt('x'));
@@ -270,16 +271,19 @@
     var c = Number(prompt('c'));
     var x = Math.sqrt(b*b-4*a*c);
     var y = Math.sqrt(4*a*c-b*b)/(2*a);
-    var z = (b=x)?'x1'+'='+'x2'+'='+(-b/(2*a)):((b>x)?'x1'+'='+((-b+x)/(2*a))+';'+'x2'+'='+((-b-x)/(2*a)):'x1'+'='+(-b/(2*a))+'+'+y+'i'+';'+'x2'+'='+(-b/(2*a))+'-'+y+'i');
+    var key1 = -b/(2*a);
+    var key2 = b*b - 4*a*c;
+    
+    var z = (key2 === 0)?'x1'+'='+'x2'+'='+key.toFixed(5):((key2>0)?'x1'+'='+((x-b)/(2*a)).toFixed(5)+';'+'x2'+'='+'-'+((b+x)/(2*a)).toFixed(5):'x1'+'='+(-b/(2*a)).toFixed(5)+'+'+y.toFixed(5)+'i'+';'+'x2'+'='+(-b/(2*a)).toFixed(5)+'-'+y.toFixed(5)+'i');
     console.log(z);
 </script>
 <script id="ch0104/21">
     var n = Number(prompt('n'));
     var x = Number(prompt('x'));
     var y = Number(prompt('y'));
-    var a = (y%x===0)?y/x:y/x|0+1;
-    var b = (a<10)?a:10;
-    console.log(b);
+    var a = (y/x+1)|0;
+    
+    console.log(n - a);
 </script>
 <script id="ch0105/01">
     var n = Number(prompt('n'));
