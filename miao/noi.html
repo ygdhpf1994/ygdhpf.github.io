@@ -78,7 +78,7 @@
     console.log(R.toFixed(4));
 </script>
 <script id="ch0103/12">
-    var pi = 3.14159;
+    var pi = 3.14;
     var r = Number(prompt('r'));
     var V = (4/3)*pi*(r**3);
     console.log(V.toFixed(2));
@@ -126,7 +126,7 @@
     var b = Math.sqrt((X1 - X3)**2 + (Y1 - Y3)**2);
     var c = Math.sqrt((X2 - X2)**2 + (Y2 - Y2)**2);
     var s = (a + b + c)/2;
-    var S = Math.sqrt(s(s - a)(s - b)(s - c));
+    var S = Math.sqrt(s*(s - a)*(s - b)*(s - c));
     console.log(S.toFixed(2));
 </script>
 <script id="ch0103/18">
@@ -455,7 +455,7 @@
     for(i = 0;i < n;i++){
         sum = sum*1.001;
     }
-    console.log(sum);
+    console.log(sum.toFixed(4));
 </script>
 <script id="ch0105/15">
     var R = Number(prompt('R'));
@@ -465,7 +465,7 @@
     for(i = 0;i < Y;i++){
         sum = sum*(1 + R/100);
     }
-    console.log(sum);
+    console.log(sum|0);
 </script>
 <script id="ch0105/16">
     var N =Number(prompt('N'));
