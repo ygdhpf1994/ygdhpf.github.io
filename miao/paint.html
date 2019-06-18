@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  // YOUR CODE GOES BELOW
+    for( var i = 20 ; i < 350 ; i++){
+       dot(i,20,'black')
+       console.log(dot)
+    }
+
+    for(var i = 20 ; i < 350 ; i++){
+       if(i%2 === 0){
+         dot(i,40,'black')
+       }else{
+         dot(i,40,'white')
+       }
+       console.log(dot)
+    }
+    for( var i = 20; i < 350 ; i++){
+      if(i%4 === 0||i%4 === 1){
+        dot(i,60,'black')
+      }else{
+         dot(i,60,'white')
+       }
+       console.log(dot)
+    }
+    for( var i = 20; i < 350 ; i++){
+      if(i%5 === 0||i%5 === 1||i%5 === 2){
+        dot(i,80,'black')
+      }else{
+         dot(i,80,'white')
+       }
+       console.log(dot)
+    }
+    for( var i = 0 ; i < 300 ; i++){
+       dot(i,i,'black')
+       console.log(dot)
+    }
+    for( var i = 0 ; i < 400 ; i++){
+       dot(i,i*3/4,'black')
+       console.log(dot)
+    }
+    for( var j = 0 ; j < 60 ; j++){
+      for( var i = 20 ; i < 80 ; i++){
+       dot(i,100 + j,'black')
+       console.log(dot)
+      }
+    }
+    for( var i = 20 ; i < 80 ; i++){
+       dot(i,180,'black')
+       console.log(dot)
+       dot(i,240,'black')
+       console.log(dot)
+    }
+    for( var i = 180 ; i < 240 ; i++){
+       dot(20,i,'black')
+       console.log(dot)
+       dot(80,i,'black')
+       console.log(dot)
+    }
+    
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 + i,120 + Math.sqrt(1600 -  i*i),'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 - i,120 + Math.sqrt(1600 -  i*i),'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 + i,120 - Math.sqrt(1600 -  i*i),'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 - i,120 - Math.sqrt(1600 -  i*i),'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 + Math.sqrt(1600 -  i*i),120 + i,'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 - Math.sqrt(1600 -  i*i),120 + i,'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 + Math.sqrt(1600 -  i*i),120 - i,'black')
+      console.log(dot)
+    }
+    for( var i = 0 ; i < 40 ; i++ ){
+      dot(300 - Math.sqrt(1600 -  i*i),120 - i,'black')
+      console.log(dot)
+    }
+    // for(var j = 0 ; j <= 1600;j++){
+    //   for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 + i,200 + Math.sqrt(j -  i*i),'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 - i,200 + Math.sqrt(j -  i*i),'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 + i,200 - Math.sqrt(j -  i*i),'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 - i,200 - Math.sqrt(j -  i*i),'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 + Math.sqrt(j -  i*i),200 + i,'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 - Math.sqrt(j -  i*i),200 + i,'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 + Math.sqrt(j -  i*i),200 - i,'black')
+    //   console.log(dot)
+    // }
+    // for( var i = 0 ; i < Math.sqrt(j) ; i++ ){
+    //   dot(300 - Math.sqrt(j -  i*i),200 - i,'black')
+    //   console.log(dot)
+    // }
+    // }
+    var a ,b
+    for( var i = 0 ; i < 50 ;i++){
+      for(var j = 0 ; j < 50 ; j++){
+        a = 5*j
+        b = 5*i
+        color = 'rgb(' + a  + ',' + '0' + ',' + b +')'
+        dot(100 + i,180 + j,color)
+        console.log(dot)
+      }
+    }
+    var sinx
+    for(var i = 0 ; i < 400; i++){
+       sinx = 40*Math.sin(i/20)
+       dot(i,200 - sinx,'lime')
+       console.log(dot)
+    }
+    
+    for(let i = 0 ; i < 40 ; i ++){
+      let y = Math.sqrt(1600 - i*i)
+      for(let j = 0 ; j <= y ;j++){
+        dot(200 + i , 150 - j , 'black')
+        console.log(dot)
+      }
+    }
+    for(let i = 0 ; i < 40 ; i ++){
+      let y = Math.sqrt(1600 - i*i)
+      for(let j = 0 ; j <= y ;j++){
+        dot(200 - i , 150 - j , 'black')
+        console.log(dot)
+      }
+    }
+    for(let i = 0 ; i < 40 ; i ++){
+      let y = Math.sqrt(1600 - i*i)
+      for(let j = 0 ; j <= y ;j++){
+        dot(200 - i , 150 + j , 'black')
+        console.log(dot)
+      }
+    }
+    for(let i = 0 ; i < 40 ; i ++){
+      let y = Math.sqrt(1600 - i*i)
+      for(let j = 0 ; j <= y ;j++){
+        dot(200 + i , 150 + j , 'black')
+        console.log(dot)
+      }
+    }
+
+</script>
+</html>
