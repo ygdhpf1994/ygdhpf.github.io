@@ -9,10 +9,12 @@ var ygdhpf1994 = {
         }
         return a
     },
-    difference: function(ary,values){
+    difference: function(ary,...values){
         var res = []
+        var temp
+        var rest = temp.concat(...values)
         for(var i = 0 ; i < ary.length ; i ++){
-            if(values.indexOf(ary[i]) === -1){
+            if(rest.indexOf(ary[i]) === -1){
                 res.push(ary[i])
             }
         }
