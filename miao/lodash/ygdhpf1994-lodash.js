@@ -11,8 +11,8 @@ var ygdhpf1994 = {
     },
     difference: function(ary,...values){
         var res = []
-        var temp
-        var rest = temp.concat(...values)
+        
+        var rest = values.reduce((item1, item2) => item1.concat(item2),[])
         for(var i = 0 ; i < ary.length ; i ++){
             if(rest.indexOf(ary[i]) === -1){
                 res.push(ary[i])
@@ -39,7 +39,61 @@ var ygdhpf1994 = {
             return difference(ary,rest)
         }
     },
-    
+    drop: function(ary, n){
+        return ary.slice(n)
+    },
+    dropRight:function(ary, n = 1){
+        
+        return ary.length > n ? ary.slice(0 , n === 0 ? ary.length - 1 : ary.length - n) : []
+    },
+    dropRightWhile: function(ary,pre){
+        if(typeof pre === 'function'){
+            var p = -1
+            for(var i = 0 ; i < ary.length ; i++){
+                if(!pre(ary[i])){
+                    p = i
+                    break
+                }
+            }
+        } else if(typeof pre === 'Object'){
+            if(typeof pre[0] === 'string'){
+                var p = -1
+                for(var i = 0; i< ary.length; i++){
+                    if(ary[i][pre[0]] !== pre[1]){
+                        p = i
+                        break
+                    }
+                }
+            } else {
+                var p = -1
+                for(var i = 0 ; i < ary.length ; i++){
+                    var Is = 0
+                    for(let key in pre){
+                        if(ary[i][key] !== pre[key]){
+                            Is = 1
+                        }
+                    }
+                    if(Is = 0) {
+                        p = i
+                        break
+                    }
+                }
+            }
+        } else if(typeof pre === 'string'){
+            var p = -1
+            for(var i = 0; i < ary.length; i++){
+                if(!ary[i][pre]){
+                    p = i
+                    break
+                }
+            }
+        }
+        return ary.slice(0, p)
+    },
+    fill: function(ary, value, start = 0, end = ary.length - 1){
+        var key = value
+        
+    }
 }
 
         
