@@ -202,10 +202,10 @@ var ygdhpf1994 = function(){
         })
         return res
     }
-    function unionBy(...ary){
-        var predicate = last(ary)
-        if()
-    }
+    // function unionBy(...ary){
+    //     var predicate = last(ary)
+    //     if()
+    // }
     function sortedIndex(ary, val){
         for(var i = 0 ; i < ary.length ; i++){
             if(ary[i] >= val) return i
@@ -345,7 +345,7 @@ var ygdhpf1994 = function(){
         reverse,
         sortedIndex,
         union,
-        unionBy,
+        
 
     }
 }();
