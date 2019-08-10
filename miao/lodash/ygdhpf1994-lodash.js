@@ -114,7 +114,7 @@ var ygdhpf1994 = function(){
     function fromPairs(ary){
         var res = {}
         for(var i = 0 ; i < ary.length ; i++){
-            res[ary[0]] = ary[1]
+            res[ary[i][0]] = ary[i][1]
         }
         return res
     }
@@ -202,10 +202,39 @@ var ygdhpf1994 = function(){
         })
         return res
     }
-    // function unionBy(...ary){
-    //     var predicate = last(ary)
-    //     if()
-    // }
+    function unionBy(...ary){
+        ary = ary.slice()
+        var predicate = ary.pop()
+        var res = []
+        var compare = []
+        var a = ary.reduce((item1, item2) => item1.concat(item2),[])
+        a.forEach(item =>{
+            var temp = predicate(item)
+            if(!compare.includes(temp)){
+                compare.push(temp)
+                res.push(item)
+            }
+        })
+        return res
+    }
+    function SameValue(x, y){
+        if(x === 0 && y === 0){
+            return 1 / x === 1 / y
+        }
+        if(x !== x && y !== y){
+            return true
+        }
+        return x === y
+    }
+    function uniq(ary){
+        var res = []
+        for(var i = 0 ; i < ary.length ; i++){
+            if(!res.every(item => SameValue(ary[i],item))){
+                res.push(ary[i])
+            }
+        }
+        return res
+    }
     function sortedIndex(ary, val){
         for(var i = 0 ; i < ary.length ; i++){
             if(ary[i] >= val) return i
@@ -345,7 +374,9 @@ var ygdhpf1994 = function(){
         reverse,
         sortedIndex,
         union,
-        
+        unionBy,
+        SameValue,
+        uniq,
 
     }
 }();
