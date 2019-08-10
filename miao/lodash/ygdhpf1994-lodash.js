@@ -55,9 +55,12 @@ var ygdhpf1994 = function(){
         }
         return res
     }
+    function dropWhile(ary, pre){
+        return dropRightWhile(ary.reverse(), pre).reverse()
+    }
     function fill(ary, value, start = 0, end = ary.length - 1){
         if(ary.length === 0 || !ary) return ary
-        for( start; start <= end; start++ ){
+        for( start; start < end; start++ ){
             ary[start] = value
         }
         return ary
@@ -180,6 +183,7 @@ var ygdhpf1994 = function(){
         isMatch,
         get,
         last,
+        dropWhile,
     }
 }();
 
