@@ -153,12 +153,12 @@ var ygdhpf1994 = function(){
         if(isNaN(value) && isNaN(other)){
             return true
         }
-        if (isObjectLike(val) && isObjectLike(other)) {
-            if(val.length !== other.length){
+        if (isObjectLike(value) && isObjectLike(other)) {
+            if(value.length !== other.length){
                 return false
             }
-            for (let k in val) {
-              if (!isEqual(val[k], other[k])) {
+            for (let k in value) {
+              if (!isEqual(value[k], other[k])) {
                 return false;
               }
             }
