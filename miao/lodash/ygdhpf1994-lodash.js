@@ -25,18 +25,21 @@ var ygdhpf1994 = function(){
         if(!isArray(test[test.length - 1])){
             predicate = iteratee(test.pop())
         }else{
-            predicate = null
+            predicate = identity
         }
         var res = []
-        var test1 = test.reduce((a , b) => a.concat(b) , []).map(it => predicate.call(null, it))
+        var test1 = test.reduce((a , b) => a.concat(b) , []).map(it => predicate(it))
         for(var i = 0 ; i < ary.length ; i++){
             var p = predicate.call(null,ary[i])
-            if(test1.includes(p)){
-                res.push(p)
+            if(!test1.includes(p)){
+                res.push(ary[i])
             }
         }
         return res
     }
+    function identity(...arg) {
+        return arg[0];
+      }
     function drop(ary, n = 1){
         return ary.slice(n)
     }
@@ -126,6 +129,65 @@ var ygdhpf1994 = function(){
     function isFunction(val){
         return typeof val === 'function'
     }
+    function property(propName) {
+        return function (obj) {
+          return get(obj, propName)
+        }
+    }
+    function matchesProperty(path, val) {
+        return function (obj) {
+          return isEqual(get(obj, path), val);
+        }
+    }
+    function matches(val){
+        
+        return function (obj) {
+            return isMatch(obj, val);
+        }
+        
+    }
+    function isEqual(value, other){
+        if(value === other){
+            return true
+        }
+        if(isNaN(value) && isNaN(other)){
+            return true
+        }
+        if (isObjectLike(val) && isObjectLike(other)) {
+            if(val.length !== other.length){
+                return false
+            }
+            for (let k in val) {
+              if (!isEqual(val[k], other[k])) {
+                return false;
+              }
+            }
+            return true;
+        }
+        return false
+    }
+    function isNaN(val){
+        return isNumber(val) && val !== +val
+    }
+    function isMatch(){
+        if (object === source) return true
+        for (let key in source) {
+            if (!(key in object && isEqual(object[key], source[key]))) return false
+        }   
+        return true
+    }
+    function get(obj, path, defaultVal) {
+        if (isString(path)) {
+          path = path.split(/\.|\[|\]/g).filter(item => item !== "")
+        }
+        for (let i = 0; i < path.length; i++) {
+          if (obj == undefined) {
+            return defaultVal
+          }
+          obj = obj[path[i]]
+        }
+        return obj
+    }
     return {
         compact,
         chunk,
@@ -142,6 +204,14 @@ var ygdhpf1994 = function(){
         isNumber,
         isFunction,
         iteratee,
+        identity,
+        property,
+        matchesProperty,
+        isNaN,
+        matches,
+        isEqual,
+        isMatch,
+        get,
     }
 }();
 
