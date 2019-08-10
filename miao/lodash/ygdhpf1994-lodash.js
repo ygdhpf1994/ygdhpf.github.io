@@ -48,48 +48,12 @@ var ygdhpf1994 = function(){
         return ary.length > n ? ary.slice(0 , n === 0 ? ary.length : ary.length - n) : []
     }
     function dropRightWhile(ary,pre){
-        if(typeof pre === 'function'){
-            var p = -1
-            for(var i = 0 ; i < ary.length ; i++){
-                if(!pre(ary[i])){
-                    p = i
-                    break
-                }
-            }
-        } else if(typeof pre === 'Object'){
-            if(typeof pre[0] === 'string'){
-                var p = -1
-                for(var i = 0; i< ary.length; i++){
-                    if(ary[i][pre[0]] !== pre[1]){
-                        p = i
-                        break
-                    }
-                }
-            } else {
-                var p = -1
-                for(var i = 0 ; i < ary.length ; i++){
-                    var Is = 0
-                    for(let key in pre){
-                        if(ary[i][key] !== pre[key]){
-                            Is = 1
-                        }
-                    }
-                    if(Is = 0) {
-                        p = i
-                        break
-                    }
-                }
-            }
-        } else if(typeof pre === 'string'){
-            var p = -1
-            for(var i = 0; i < ary.length; i++){
-                if(!ary[i][pre]){
-                    p = i
-                    break
-                }
-            }
+        var predicate = iteratee(pre)
+        var res = ary.slice(0)
+        while(predicate(last(res))){
+            res.pop()
         }
-        return ary.slice(0, p)
+        return res
     }
     function fill(ary, value, start = 0, end = ary.length - 1){
         if(ary.length === 0 || !ary) return ary
@@ -188,6 +152,9 @@ var ygdhpf1994 = function(){
         }
         return obj
     }
+    function last(ary){
+        return ary[ary.length - 1]
+    }
     return {
         compact,
         chunk,
@@ -212,6 +179,7 @@ var ygdhpf1994 = function(){
         isEqual,
         isMatch,
         get,
+        last,
     }
 }();
 
