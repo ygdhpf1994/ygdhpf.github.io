@@ -9,7 +9,7 @@ var ygdhpf1994 = function(){
         }
         return a
     }
-   function difference(ary,...values){
+    function difference(ary,...values){
         var res = []
         
         var rest = values.reduce((item1, item2) => item1.concat(item2),[])
@@ -20,7 +20,7 @@ var ygdhpf1994 = function(){
         }
         return res
     }
-   function differenceBy(ary , ...test) {
+    function differenceBy(ary , ...test) {
         let predicate
         if(!isArray(test[test.length - 1])){
             predicate = iteratee(test.pop())
@@ -131,9 +131,9 @@ var ygdhpf1994 = function(){
         chunk,
         difference,
         differenceBy,
+        dropRightWhile,
         drop,
         dropRight,
-        dropRightWhil,
         fill,
         isArray,
         isString,
@@ -141,8 +141,8 @@ var ygdhpf1994 = function(){
         isObjectLike,
         isNumber,
         isFunction,
-        iteratee
+        iteratee,
     }
-}()
+}();
 
         
