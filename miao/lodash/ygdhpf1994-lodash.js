@@ -160,6 +160,44 @@ var ygdhpf1994 = function(){
             return ary[p]
         }
     }
+    function join(ary, separator = ','){
+        var res = ary[0]
+        for(var i = 1 ; i < ary.length ; i++){
+            res += separator
+            res += ary[i]
+        }
+        return res
+    }
+    function lastIndexOf(ary, val, fromIndex = ary.length -1){
+        for(var i = fromIndex; i >= 0; i--){
+            if(isEqual(ary[i], val)) return i
+        }
+        return -1
+    }
+    function remove(ary, val){
+        return ary.filter(item => item !== val)
+    }
+    function pull(ary, ...val){
+        ary = ary.slice(0)
+        var values = val.slice(0)
+        values.forEach(item =>{
+            ary = remove(ary, item)
+        })
+        return ary
+    }
+    function reverse(ary){
+        ary = ary.slice()
+        for(var i = 0 ,len = ary.length; i < len / 2 ; i++){
+            var temp = ary[i]
+            ary[i] = ary[len - i - 1]
+            ary[len - i - 1] = temp
+        }
+        return ary
+    }
+    function without(ary, ...val){
+        var res = ary.slice(0)
+        return pull(res, ...val)
+    }
     function isArray(ary){
         return Object.prototype.toString.call(ary) === '[object Array]'
     }
@@ -281,6 +319,12 @@ var ygdhpf1994 = function(){
         intersection,
         find,
         findLast,
+        join,
+        lastIndexOf,
+        remove,
+        pull,
+        without,
+        reverse,
 
     }
 }();
