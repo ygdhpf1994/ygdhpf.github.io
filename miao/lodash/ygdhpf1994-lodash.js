@@ -45,7 +45,7 @@ var ygdhpf1994 = function(){
     }
     function dropRight(ary, n = 1){
         
-        return ary.length > n ? ary.slice(0 , n === 0 ? ary.length - 1 : ary.length - n) : []
+        return ary.length > n ? ary.slice(0 , n === 0 ? ary.length : ary.length - n) : []
     }
     function dropRightWhile(ary,pre){
         if(typeof pre === 'function'){
@@ -118,7 +118,7 @@ var ygdhpf1994 = function(){
     }
     function isObject(ary){
         var type = typeof ary
-        return type !== null && (type === 'object' || type === 'function')
+        return ary !== null && (type === 'object' || type === 'function')
     }
     function isObjectLike(ary){
         return typeof ary == 'object' && ary !== null
@@ -169,7 +169,7 @@ var ygdhpf1994 = function(){
     function isNaN(val){
         return isNumber(val) && val !== +val
     }
-    function isMatch(){
+    function isMatch(object, source){
         if (object === source) return true
         for (let key in source) {
             if (!(key in object && isEqual(object[key], source[key]))) return false
