@@ -112,7 +112,7 @@ var ygdhpf1994 = function(){
         return ary
     }
     function fromPairs(ary){
-        var res = []
+        var res = {}
         for(var i = 0 ; i < ary.length ; i++){
             res[ary[0]] = ary[1]
         }
@@ -161,7 +161,7 @@ var ygdhpf1994 = function(){
         }
     }
     function join(ary, separator = ','){
-        var res = ary[0]
+        var res = '' + ary[0]
         for(var i = 1 ; i < ary.length ; i++){
             res += separator
             res += ary[i]
@@ -186,13 +186,31 @@ var ygdhpf1994 = function(){
         return ary
     }
     function reverse(ary){
-        ary = ary.slice()
+        ary = ary || []
         for(var i = 0 ,len = ary.length; i < len / 2 ; i++){
             var temp = ary[i]
             ary[i] = ary[len - i - 1]
             ary[len - i - 1] = temp
         }
         return ary
+    }
+    function union(...ary){
+        var res = []
+        var a = ary.reduce((item1, item2) => item1.concat(item2),[])
+        a.forEach(item =>{
+            if(!res.includes(item)) res.push(item)
+        })
+        return res
+    }
+    function unionBy(...ary){
+        var predicate = last(ary)
+        if()
+    }
+    function sortedIndex(ary, val){
+        for(var i = 0 ; i < ary.length ; i++){
+            if(ary[i] >= val) return i
+        }
+        return ary.length
     }
     function without(ary, ...val){
         var res = ary.slice(0)
@@ -325,6 +343,9 @@ var ygdhpf1994 = function(){
         pull,
         without,
         reverse,
+        sortedIndex,
+        union,
+        unionBy,
 
     }
 }();
