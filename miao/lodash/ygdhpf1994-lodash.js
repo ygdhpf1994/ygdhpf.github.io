@@ -21,25 +21,23 @@ var ygdhpf1994 = {
         return res
     },
     differenceBy: function(ary , ...test) {
-        
-        var key = test[test.length - 1]
-        var rest = test.slice(0,test.length - 1)
-        if(typeof key === 'function'){
-            rest.pop()
-            var temp = []
-            var p = temp.concat(...rest).map(key)
-            var q = ary.map(key)
-            return difference(q, p)
-        } else if(typeof key === 'string'){
-            rest.pop()
-            var temp = []
-            var p = temp.concat(...rest)
-            return difference(ary , p)
-        } else {
-            return difference(ary,rest)
+        let predicate
+        if(!isArray(test[test.length - 1])){
+            predicate = iteratee(test.pop())
+        }else{
+            predicate = null
         }
+        var res = []
+        var test1 = test.reduce((a , b) => a.concat(b) , []).map(it => predicate.call(null, it))
+        for(var i = 0 ; i < ary.length ; i++){
+            var p = predicate.call(null,ary[i])
+            if(test1.includes(p)){
+                res.push(p)
+            }
+        }
+        return res
     },
-    drop: function(ary, n){
+    drop: function(ary, n = 1){
         return ary.slice(n)
     },
     dropRight:function(ary, n = 1){
@@ -91,9 +89,15 @@ var ygdhpf1994 = {
         return ary.slice(0, p)
     },
     fill: function(ary, value, start = 0, end = ary.length - 1){
-        var key = value
-        
-    }
+        if(ary.length === 0 || !ary) return ary
+        for( start; start <= end; start++ ){
+            ary[start] = value
+        }
+        return ary
+    },
+    isArray:function(ary){
+        return Object.prototype.toString(ary) === '[object Array]'
+    },
 }
 
         
