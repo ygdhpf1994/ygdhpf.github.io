@@ -96,7 +96,7 @@ var ygdhpf1994 = {
         return ary
     },
     isArray:function(ary){
-        return Object.prototype.toString(ary) === '[object Array]'
+        return Object.prototype.toString.call(ary) === '[object Array]'
     },
 }
 
