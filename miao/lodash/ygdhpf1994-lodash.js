@@ -126,7 +126,7 @@ var ygdhpf1994 = function(){
     function isFunction(val){
         return typeof val === 'function'
     }
-    return [
+    return {
         compact,
         chunk,
         difference,
@@ -142,7 +142,7 @@ var ygdhpf1994 = function(){
         isNumber,
         isFunction,
         iteratee
-    ]
+    }
 }()
 
         
