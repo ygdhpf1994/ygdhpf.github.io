@@ -58,13 +58,28 @@ var ygdhpf1994 = function(){
     function dropWhile(ary, pre){
         return dropRightWhile(ary.reverse(), pre).reverse()
     }
-    function fill(ary, value, start = 0, end = ary.length - 1){
+    function fill(ary, value, start = 0, end = ary.length){
         if(ary.length === 0 || !ary) return ary
         for( start; start < end; start++ ){
             ary[start] = value
         }
         return ary
     }
+    function findIndex(ary, pre ,fromIdx = 0){
+        var predicate = iteratee(pre)
+        for(var i = fromIdx ; i < ary.length ; i++){
+            if(predicate(ary[i], i , ary)) return i
+        }
+        return -1
+    }
+    function findLastIndex(ary, pre ,fromIdx = ary.length - 1){
+        var predicate = iteratee(pre)
+        for(var i = fromIdx ; i >= 0 ; i--){
+            if(predicate(ary[i], i , ary)) return i
+        }
+        return -1
+    }
+
     function iteratee(val) {
         if (isString(val)) {
           return property(val)
@@ -76,6 +91,25 @@ var ygdhpf1994 = function(){
           return matches(val)
         }
         return val
+    }
+    function flatten(ary){
+        return [].concat(...ary)
+    }
+    function flattenDeep(ary){
+        for(var i = 0 ; i < ary.length ; i++){
+            if(isArray(ary[i])){
+                ary = flatten(ary)
+                flattenDeep(ary)
+            }
+        }
+        return ary
+    }
+    function flattenDepth(ary, depth = 1){
+        ary = ary.slice(0)
+        for(var i = 0 ; i < depth; i++){
+            ary = flatten(ary)
+        }
+        return ary
     }
     function isArray(ary){
         return Object.prototype.toString.call(ary) === '[object Array]'
@@ -184,6 +218,12 @@ var ygdhpf1994 = function(){
         get,
         last,
         dropWhile,
+        findIndex,
+        findLastIndex,
+        flatten,
+        flattenDeep,
+        flattenDepth,
+
     }
 }();
 
