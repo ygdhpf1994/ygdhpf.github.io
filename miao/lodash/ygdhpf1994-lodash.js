@@ -111,6 +111,55 @@ var ygdhpf1994 = function(){
         }
         return ary
     }
+    function fromPairs(ary){
+        var res = []
+        for(var i = 0 ; i < ary.length ; i++){
+            res[ary[0]] = ary[1]
+        }
+        return res
+    }
+    function head(ary){
+        return ary.length === 0 ? undefined : ary[0]
+    }
+    function toPairs(obj){
+        var res = []
+        var keyary = Object.keys(obj)
+        for(var i = 0 ; i < keyary.length ; i++){
+            res.push(keyary[i], obj[keyary[i]])
+        }
+        return res
+    }
+    function values(obj){
+        return Object.values(obj)
+    }
+    function indexOf(ary, value, fromIndex = 0){
+        for(var i = fromIndex ; i < ary.length ; i++){
+            if(ary[i] === value) return i
+        }
+        return -1
+    }
+    function initial(ary){
+        return ary.slice(0, ary.length - 1)
+    }
+    function intersection(...ary){
+        return ary[0].filter(item => ary.every(item1 => item1.includes(item)))
+    }
+    function find(ary, pre ,fromIdx = 0){
+        var p = findIndex(ary, pre ,fromIdx)
+        if(p === -1){
+            return undefined
+        } else {
+            return ary[p]
+        }
+    }
+    function findLast(ary, pre ,fromIdx = ary.length - 1){
+        var p = findLastIndex(ary, pre ,fromIdx)
+        if(p === -1){
+            return undefined
+        } else {
+            return ary[p]
+        }
+    }
     function isArray(ary){
         return Object.prototype.toString.call(ary) === '[object Array]'
     }
@@ -223,6 +272,15 @@ var ygdhpf1994 = function(){
         flatten,
         flattenDeep,
         flattenDepth,
+        fromPairs,
+        head,
+        toPairs,
+        values,
+        indexOf,
+        initial,
+        intersection,
+        find,
+        findLast,
 
     }
 }();
