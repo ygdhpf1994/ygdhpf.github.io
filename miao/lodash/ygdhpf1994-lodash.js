@@ -229,7 +229,7 @@ var ygdhpf1994 = function(){
     function uniq(ary){
         var res = []
         for(var i = 0 ; i < ary.length ; i++){
-            if(!res.every(item => SameValue(ary[i],item))){
+            if(!res.some(item => SameValue(ary[i],item))){
                 res.push(ary[i])
             }
         }
