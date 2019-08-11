@@ -197,14 +197,16 @@ var ygdhpf1994 = function(){
     function union(...ary){
         var res = []
         var a = ary.reduce((item1, item2) => item1.concat(item2),[])
-        a.forEach(item =>{
-            if(!res.includes(item)) res.push(item)
-        })
+        for(var i = 0 ; i < a.length ; i++){
+            if(!res.some(item => SameValue(a[i],item))){
+                res.push(a[i])
+            }
+        }
         return res
     }
     function unionBy(...ary){
         ary = ary.slice()
-        var predicate = ary.pop()
+        var predicate = iteratee(ary.pop())
         var res = []
         var compare = []
         var a = ary.reduce((item1, item2) => item1.concat(item2),[])
@@ -235,6 +237,19 @@ var ygdhpf1994 = function(){
         }
         return res
     }
+    function uniqBy(ary, iteratee){
+        var predicate = iteratee(iteratee)
+        var res = [], map = []
+        for(var i = 0 ; i < ary.length ; i++){
+            var p = predicate(ary[i])
+            if(!map.includes(p)){
+                map.push(p)
+                res.push(ary[i])
+            }
+        }
+        return res
+    }
+
     function sortedIndex(ary, val){
         for(var i = 0 ; i < ary.length ; i++){
             if(ary[i] >= val) return i
@@ -377,6 +392,7 @@ var ygdhpf1994 = function(){
         unionBy,
         SameValue,
         uniq,
+        uniqBy,
 
     }
 }();
